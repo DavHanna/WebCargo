@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WebCargo</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="app" class="container-fluid">
+      <h1>WebCargo API consumer</h1>
+
+      <form>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Domain name (ex: google.com)" v-model="domainName">
+          </div>
+          <div class="col">
+            <button type="button" name="button" class="btn btn-primary" @click="searchDomain">Search</button>
+          </div>
+        </div>
+      </form>
+
+      <br>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Availability</th>
+            <td>{{ domainIsAvailable }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Created at</th>
+            <td>{{ createdAt }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Location</th>
+            <td>{{ location }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Screenshot</th>
+            <td>
+              <img v-show="screenshot" :src="screenshot" alt="screenshot" style="height:300px">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">webmaster@{{ domainName }}</th>
+            <td>
+              {{ webmasterEmail }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </body>
+  <script src="js/vue.js"></script>
+  <script src="node_modules/axios/dist/axios.js"></script>
+  <script src="js/app.js"></script>
+</html>
